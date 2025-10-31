@@ -231,11 +231,17 @@ El equipo de IAE x Mi Gusto
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-fuchsia-800 flex items-center justify-center px-4 py-8 sm:py-12">
       <div className="w-full max-w-md mx-auto">
         <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl border border-purple-500/30">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-6 sm:mb-8">
-            IAE x Mi Gusto
-          </h1>
-
           <div className="space-y-5 sm:space-y-6">
+            {/* Imagen del logo */}
+            <div className="flex justify-center mb-4">
+              <img 
+                src="https://i.postimg.cc/7Z7bqFdb/Logo-Mi-Gusto-2025-Blanco.png" 
+                alt="Mi Gusto Logo" 
+                className="max-w-[200px] sm:max-w-[250px] md:max-w-[300px] h-auto"
+              />
+            </div>
+
+            {/* Campo de email */}
             <div>
               <input
                 type="email"
@@ -243,7 +249,7 @@ El equipo de IAE x Mi Gusto
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyPress={handleKeyPress}
                 className="w-full px-4 py-3 sm:py-3.5 text-base sm:text-lg rounded-lg bg-white/10 border border-purple-400/30 text-white placeholder-purple-300/50 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 focus:border-transparent transition-all"
-                placeholder="Ingresa tu email"
+                placeholder="Ingresa tu mail para recibir un beneficio"
                 autoComplete="email"
               />
             </div>
