@@ -41,6 +41,12 @@ function App() {
     setMessage(null);
 
     try {
+      // Verificar que Supabase esté configurado
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      if (!supabaseUrl || supabaseUrl.includes('placeholder')) {
+        throw new Error('Configuración de Supabase incompleta. Por favor contacta al administrador.');
+      }
+
       // 1. Obtener un código disponible de Supabase
       const { data: codigoData, error: codigoError } = await supabase
         .from('email_codes')
@@ -50,6 +56,7 @@ function App() {
         .single();
 
       if (codigoError || !codigoData) {
+        console.error('Error al obtener código:', codigoError);
         throw new Error('No hay códigos disponibles en este momento. Por favor intenta más tarde.');
       }
 

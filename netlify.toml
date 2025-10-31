@@ -1,0 +1,20 @@
+# Configuración de Netlify
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Configuración de variables de entorno y secret scanning
+[build.environment]
+  # Indicar a Netlify que estas son claves públicas y no deben escanearse como secretos
+  # Estas son claves públicas diseñadas para estar en el cliente:
+  # - VITE_SUPABASE_ANON_KEY: Clave anónima pública de Supabase (diseñada para cliente)
+  # - VITE_SUPABASE_URL: URL pública de Supabase (diseñada para cliente)
+  # - VITE_EMAILJS_*: Claves públicas de EmailJS (diseñadas para cliente)
+  SECRETS_SCAN_OMIT_KEYS = "VITE_EMAILJS_PUBLIC_KEY,VITE_EMAILJS_SERVICE_ID,VITE_EMAILJS_TEMPLATE_ID,VITE_SUPABASE_ANON_KEY,VITE_SUPABASE_URL,VITE_GA_ID"
+
+# Configuración de redirects para SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
